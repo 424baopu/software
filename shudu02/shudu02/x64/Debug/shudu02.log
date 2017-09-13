@@ -1,0 +1,9 @@
+﻿  stdafx.cpp
+f:\my_download\vs_c++\shudu02\shudu02\stdafx.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+f:\my_download\vs_c++\shudu02\shudu02\stdafx.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+f:\my_download\vs_c++\shudu02\shudu02\targetver.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  shudu02.cpp
+f:\my_download\vs_c++\shudu02\shudu02\shudu02.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+f:\my_download\vs_c++\shudu02\shudu02\shudu02.cpp(181): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  shudu02.vcxproj -> F:\my_download\VS_C++\shudu02\x64\Debug\shudu02.exe
+  shudu02.vcxproj -> F:\my_download\VS_C++\shudu02\x64\Debug\shudu02.pdb (Partial PDB)

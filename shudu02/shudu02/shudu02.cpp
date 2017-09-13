@@ -30,8 +30,8 @@ void print() {
 }
 
 //产生随机1-9数组btnArray
-void creatArray() {
-	times++;
+void creatfirst() {
+	//times++;
 	for (int i = 0; i<9; i++) {
 		btnArray[i] = i + 1;
 	}
@@ -43,6 +43,21 @@ void creatArray() {
 		int t = rand() % 8 + 1;
 		int temp = btnArray[1];
 		btnArray[1] = btnArray[t];
+		btnArray[t] = temp;
+	}
+
+}
+
+void creatArray() {
+	times++;
+	for (int i = 0; i<9; i++) {
+		btnArray[i] = i + 1;
+	}
+
+	for (int i = 0; i<20; i++) {
+		int t = rand() % 9 ;
+		int temp = btnArray[0];
+		btnArray[0] = btnArray[t];
 		btnArray[t] = temp;
 	}
 
@@ -115,7 +130,7 @@ void getshudu() {
 				}
 			}
 
-			creatArray();
+			creatfirst();
 			for (int i = 0; i<9; i++) {
 				Array[0][i] = btnArray[i];
 			}
@@ -143,8 +158,16 @@ void getshudu() {
 }
 
 int main(int argc, char* argv[]) {
+
 	int N = 0;
-	
+	srand((unsigned)time(NULL));
+
+	/*
+	cin >> N;
+	freopen("./sudoku.txt", "w", stdout);
+	for (int i = 0; i < N; i++)
+		getshudu();
+    */
 	//判断输入是否合法
 	if (argc != 3) {
 		cout << "input error" << endl;
@@ -166,13 +189,14 @@ int main(int argc, char* argv[]) {
 			}
 			//重定向输出文件
 			freopen("./sudoku.txt", "w", stdout);
-			for (int i = 0; i < N; i++)
+			for (int i = 0; i < N; i++) {
 				getshudu();
+			}
 
 		}
 
 	}
-
+	
 	return 0;
 
 }
