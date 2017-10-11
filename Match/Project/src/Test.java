@@ -15,7 +15,6 @@ public class Test {
 			e.printStackTrace();
 		}
 		
-		
 		Output output = new Output();;
 		try {
 			output.Print();

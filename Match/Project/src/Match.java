@@ -12,6 +12,7 @@ public class Match {
     private static ArrayList<String>[] list;
     private static Map<String, Integer> stuMap;
     
+    
     Match(){
     	result = new HashMap<String, ArrayList<String>>();
     	resultList= new ArrayList[20];
@@ -52,9 +53,6 @@ public class Match {
 	    	}
 	    }
 	    
-//	    System.out.println(result);
-	   
-	    
 	}
 
 	private void clearList() {
@@ -73,8 +71,8 @@ public class Match {
     			//取得学号与部门编号，如果二者时间不冲突，则加入map
     			String dept = Input.stu[j].getDeptments()[index];
 	    	    String no = Input.stu[j].getNo();
-	    	    
-	    	    if(isFreeTimeConflict(index,dept) == false){
+
+	    	    if(isFreeTimeConflict(j,dept) == true){
 	    			map.get(dept).add(no);
 	    	    }
     		}
@@ -195,7 +193,6 @@ public class Match {
 			
 			int num = Input.stu[index].getNumAdmit();
 			Input.stu[index].setNumAdmit(num + 1);//更新被录取次数
-			
 			updateStuFreeTime(index, depFreeTime);//更新空闲时间
 		}
 		
@@ -225,6 +222,7 @@ public class Match {
 	//判断学生部门时间是否冲突
 	private boolean isFreeTimeConflict(int index, String string) {
 	    
+		
 		int[][] stuFreeTime = Input.stu[index].getDateTime();
 		int[][] depFreeTime = null;
 		
@@ -238,20 +236,25 @@ public class Match {
 		}
 		
 		for(int i = 0; i < depFreeTime.length; i++) {
+			
 			boolean isInclude = false;
 			for(int j=0; j < stuFreeTime.length; j++) {
-				if(stuFreeTime[j][1] != 0){
-					if(stuFreeTime[j][0] <= depFreeTime[i][0]&&stuFreeTime[j][1] >= depFreeTime[i][1]){
-					    isInclude = true; 
-					    break;
-				    }
+				
+				if(stuFreeTime[j][1] == stuFreeTime[j][0]) {
+					continue;	
 				}
-				if(isInclude == false){
-					return false;
+				if((stuFreeTime[j][0] <= depFreeTime[i][0])&&(stuFreeTime[j][1] >= depFreeTime[i][1])) {
+				    isInclude = true; 
+					break;
 				}
+				
 			}
+			if(isInclude == false){
+				return false;
+				
+			}
+			
 		}
-		
 		return true;
 	}
     

@@ -29,9 +29,9 @@ public class Department {
 	
 	private void merge() {
 		int tmp = 0;
-		for(int i = 1; i < dateTime.length; i++){
-			if(dateTime[i][0] <= dateTime[tmp][1]){
-				if(dateTime[i][1] > dateTime[tmp][1]){
+		for(int i = 1; i < dateTime.length; i++) {
+			if(dateTime[i][0] <= dateTime[tmp][1]) {
+				if(dateTime[i][1] > dateTime[tmp][1]) {
 					dateTime[tmp][1] = dateTime[i][1];
 				}
 				dateTime[i][0] = 0;
@@ -81,9 +81,6 @@ public class Department {
 		String begin_minute = string.substring(fcolon_loc+1, wave_loc);
 		String over_hour = string.substring(wave_loc+1,scolon_loc);
 		String over_minute = string.substring(scolon_loc+1);
-		
-//		int a = Integer.parseInt("01");
-//		System.out.println(a);
 				
 		tmp[0] = Integer.parseInt(begin_hour)*60+Integer.parseInt(begin_minute);
 		tmp[1] = Integer.parseInt(over_hour)*60+Integer.parseInt(over_minute);

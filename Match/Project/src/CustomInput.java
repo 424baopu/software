@@ -79,8 +79,8 @@ public class CustomInput {
 	private String[] getDno() {
 		String[] tmp = new String[DNUM];
 		for(int i = 0; i < DNUM; i++) {
-			String s = String.valueOf(i);
-			if(i<10) {
+			String s = String.valueOf(i+1);
+			if(i < 9) {
 				tmp[i] = "D00"+s;
 			}
 			else {
@@ -146,7 +146,8 @@ public class CustomInput {
 			//得到部门纳新人数10~15
 			int memberLimit = random.nextInt(6) + 10;
 			//得到常规活动时间段2~3个
-			int timeMemer = random.nextInt(2) + 2;
+			int timeMemer = random.nextInt(1) + 2;
+//			int timeMemer = 2;
 			String[] eventTime = getEventTime(timeMemer);
 			//得到标签2~3个
 			int tagsMember = random.nextInt(2) + 2;
@@ -188,9 +189,6 @@ public class CustomInput {
 		for(int i=0; i < SNUM; i++) {
 			stuObj[i] = new JSONObject();
 			
-			/*
-			 * test only 
-			 */
 			//得到空闲时间10~14个
 			int timeMemer = random.nextInt(5) + 10;
 			String[] freeTime = getFreeTime(timeMemer);
@@ -206,6 +204,7 @@ public class CustomInput {
 			stuObj[i].put("tags", tags);
 			stuObj[i].put("applications_department", depa);
 			tmp.put(stuObj[i]);
+			
 		}
 
 		return tmp;

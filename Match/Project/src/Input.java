@@ -17,11 +17,7 @@ public class Input {
 	
 	static Student[] stu = new Student[SNUM];
 	static Department[] depa = new Department[DNUM];
-	/*
-	Input() throws Exception{
-		dealInput();
-	}
-	*/
+	
 	public void dealInput() {
 		
 		//读取文件，将JSONTokener对象作为参数来构造JSONObject或JSONArray

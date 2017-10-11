@@ -12,8 +12,6 @@ public class Student {
 	String[] freeTime;
 	int[][] dateTime;//将空闲时间字符串转为数字
 	int numAdmit;
-	static Map<String, Integer>week;
-	static Map<String, Integer>hours;
 	
 	Student(int dept_sz,int tag_sz,int free_sz) {
 		tags = new String[tag_sz];
@@ -23,18 +21,6 @@ public class Student {
 		numAdmit = 0;
 	}
 	
-	public void init() {
-		// TODO Auto-generated method stub
-		week.put("Mon.", 0);
-		week.put("Tues.", 1);
-		week.put("Wed.", 2);
-		week.put("Thur.", 3);
-		week.put("Fri.", 4);
-		week.put("Sat.", 5);
-		week.put("Sun.", 6);
-		
-//		hours.put("00", value)
-	}
 
 	public int getNumAdmit() {
 		return numAdmit;
@@ -50,7 +36,7 @@ public class Student {
 	
 	//处理时间数据
 	public void setDateTime(){
-		for(int i=0;i<dateTime.length;i++){
+		for(int i = 0; i < dateTime.length; i++) {
 			dateTime[i] = dealFreeTime(freeTime[i]);
 		}
 		sort(dateTime,0);
@@ -61,9 +47,9 @@ public class Student {
 	
 	private void merge() {
 		int tmp = 0;
-		for(int i = 1; i < dateTime.length; i++){
-			if(dateTime[i][0] <= dateTime[tmp][1]){
-				if(dateTime[i][1] > dateTime[tmp][1]){
+		for(int i = 1; i < dateTime.length; i++) {
+			if(dateTime[i][0] <= dateTime[tmp][1]) {
+				if(dateTime[i][1] > dateTime[tmp][1]) {
 					dateTime[tmp][1] = dateTime[i][1];
 				}
 				dateTime[i][0] = 0;
